@@ -13,12 +13,12 @@ body{
 .lead{
     text-align: center;
     font-size:30px;
-    color:white;
+    color:rgb(236, 206, 32);
     background-color:black;
 }
 
 .form-p{
-    color:white;
+    color:rgb(236, 206, 32);
     font-size:25px;
     
 }
@@ -39,6 +39,7 @@ body{
 
 #add-charactor{
     color: black;
+    background-color: rgb(11, 225, 193);
     margin-left: 15px;
 }
 
