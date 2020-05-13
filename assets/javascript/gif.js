@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  
 // Initial array of movies
 var charactors = ["Iron Man", "Captain America", "Black Widow", "Thor","Hulk"];
 // displayMovieInfo function re-renders the HTML to display the appropriate content
@@ -31,7 +31,7 @@ var charactorDiv = $("<div class = 'charactor'>");
 var rating = results[i].rating;
 
 // Creating an element to have the rating displayed
-var pRating = $("<p>").txet("Rating :  " + rating);
+var pRating = $("<p class='pRating'>").text("Rating :  " + rating);
 
 // Creating an image tag
  var imgURL = $("<img>") ;
@@ -42,8 +42,9 @@ imgURL.attr("src", results[i].images.fixed_height.url);
 
 // Appending the paragraph and imgURL we created to the "charactorDiv" div we created
 //To Display images and rating
-charactorDiv.append(imgURL);
+
 charactorDiv.append(pRating);
+charactorDiv.append(imgURL);
 
 // Prepending the charactorDiv to the "#gifs-appear-here" div in the HTML
 $("#gifs-appear-here").prepend(charactorDiv);
@@ -69,26 +70,41 @@ for (var i = 0; i < charactors.length; i++){
 
 // Then dynamicaly generating buttons for each charactor in the array
 // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-    var a = $("<button");
+    var a = $("<button class='btn btn-primary btn-lg'>");
 //Adding a class of charactor-btn to our button 
         a.addClass("charactor-btn");
 // Adding a data-attribute
         a.attr("data-search", charactors[i]);
 // Providing the initial button text
-        a.text(charactor[i]);
+        a.text(charactors[i]);
 // Adding the button to the btn-view div
-        $("btn-view").append(a);
+        $("#btn-view").append(a);
 
-}
-
-
-
-
+   }
 
 };
 
+// This function handle event where a charactor button is clicked
+$("add-charactor").on("click", function(event){
+    event.preventDefault();
 
+// This line grabs the input from the textbox
+var charactor = $("charactor-input").val().trim();
 
+// Adding charactor from textbox to our array
+charactors.push(charactor);
+
+// Calling renderButtons which handles the processing of our charactor array
+renderButtons();
+});
+
+// Adding a click event listener to all elements with a class of "charactor-btn"
+$(document).on("click", ".charactor-btn", displayCharactorInfo);
+
+// Calling the renderButtons function to display the intial buttons
+      
+
+renderButtons();
 
 
 
