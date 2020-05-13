@@ -17,6 +17,32 @@ body{
     background-color:black;
 }
 
+.form-p{
+    color:white;
+    font-size:25px;
+    
+}
+
+#btn-view:hover, #add-charactor:hover   {
+    background-color:rgb(199, 9, 228);
+    border-color: rgb(25, 28, 235);
+}
+#btn-view{
+    color: black;
+    background-color: indianred;
+}
+
+#charactor-input{
+    margin-left: 15px;
+    border-color: rgb(51, 8, 241);
+}
+
+#add-charactor{
+    color: black;
+    margin-left: 15px;
+}
+
+
 /*
   These rules take effect when the browser's width
   is either 1198px or less.
