@@ -34,7 +34,7 @@ var rating = results[i].rating;
 var pRating = $("<p class='pRating'>").text("Rating :  " + rating);
 
 // Creating an image tag
- var imgURL = $("<img>") ;
+ var imgURL = $("<img class = 'imageDiv'>") ;
 
  // Giving the image tag an src attribute of a proprty pulled off the
 // result item
@@ -46,8 +46,11 @@ imgURL.attr("src", results[i].images.fixed_height.url);
 charactorDiv.append(pRating);
 charactorDiv.append(imgURL);
 
+
 // Prepending the charactorDiv to the "#gifs-appear-here" div in the HTML
+
 $("#gifs-appear-here").prepend(charactorDiv);
+
 
        }
 

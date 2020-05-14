@@ -30,7 +30,6 @@ body{
     
 }
 #btn-view{
-    color: black;
     padding: 10px 15px 10px 15px;
     margin: 10px;
     
@@ -60,8 +59,15 @@ body{
     font-size: 20px;
     margin:10px;
     color:rgb(236, 206, 32);
+
+    
+    
 }
 
+.charactor {
+	float: left;
+	margin: 10px;
+}
 
 /*
   These rules take effect when the browser's width
