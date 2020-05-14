@@ -1,7 +1,7 @@
 $(document).ready(function () {
   
 // Initial array of movies
-var charactors = ["Iron Man", "Captain America", "Black Widow", "Thor","Hulk"];
+var charactors = ["Iron Man", "Captain America", "Black Widow", "Thor","Hulk","Ant-Man","Pepper Potts","Spider-Man"];
 // displayMovieInfo function re-renders the HTML to display the appropriate content
 function displayCharactorInfo() {
 
@@ -39,6 +39,10 @@ var pRating = $("<p class='pRating'>").text("Rating :  " + rating);
  // Giving the image tag an src attribute of a proprty pulled off the
 // result item
 imgURL.attr("src", results[i].images.fixed_height.url);
+imgURL.attr("data-state", "still");
+imgURL.attr("data-still", results[i].images.fixed_height_still.url);
+imgURL.attr("data-animate", results[i].images.fixed_height.url);
+
 
 // Appending the paragraph and imgURL we created to the "charactorDiv" div we created
 //To Display images and rating
@@ -88,11 +92,11 @@ for (var i = 0; i < charactors.length; i++){
 };
 
 // This function handle event where a charactor button is clicked
-$("add-charactor").on("click", function(event){
+$("#add-charactor").on("click", function(event){
     event.preventDefault();
 
 // This line grabs the input from the textbox
-var charactor = $("charactor-input").val().trim();
+var charactor = $("#charactor-input").val().trim();
 
 // Adding charactor from textbox to our array
 charactors.push(charactor);
@@ -109,7 +113,25 @@ $(document).on("click", ".charactor-btn", displayCharactorInfo);
 
 renderButtons();
 
+function changeState(){
 
+// The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+var state = $(this).attr("data-state");
+//If the clicked image's state is still, update its src attribute to what its data-animate value is.
+//Then, set the image's data-state to animate
+//Else set src to data-still value
+
+if(state === "still"){
+    $(this).attr("src", $(this).attr("data-animate"));
+    $(this).attr("data-state", "animate");
+}else{
+    $(this).attr("src", $(this).attr("data-still"));
+    $(this).attr("data-state", "still");
+}
+
+
+};
+$(document).on("click", ".imageDiv", changeState);
 
 ////   
 });
