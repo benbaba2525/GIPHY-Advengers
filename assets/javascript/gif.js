@@ -1,7 +1,7 @@
 $(document).ready(function () {
   
 // Initial array of movies
-var charactors = ["Iron Man", "Captain America", "Black Widow", "Thor","Hulk","Ant-Man","Pepper Potts","Spider-Man"];
+var charactors = ["Iron Man", "Captain America", "Black Widow", "Thor","Hulk","Ant-Man","Spider-Man"];
 // displayMovieInfo function re-renders the HTML to display the appropriate content
 function displayCharactorInfo() {
 
@@ -40,7 +40,7 @@ var pRating = $("<p class='pRating'>").text("Rating :  " + rating);
 
  // Giving the image tag an src attribute of a proprty pulled off the
 // result item
-imgURL.attr("src", results[i].images.fixed_height.url);
+imgURL.attr("src", results[i].images.fixed_height_still.url);
 imgURL.attr("data-state", "still");
 imgURL.attr("data-still", results[i].images.fixed_height_still.url);
 imgURL.attr("data-animate", results[i].images.fixed_height.url);

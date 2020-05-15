@@ -2,7 +2,7 @@
 body{
     background-size:auto;
     background-image: url('../images/background.jpg');
-    font-family: 'Maiden Orange', cursive;
+    font-family: 'Cardo', serif;
 }
 .jumbotron{
     background-size: 100%;
@@ -12,7 +12,7 @@ body{
 
 .lead{
     text-align: center;
-    font-size:30px;
+    font-size:25px;
     color:rgb(236, 206, 32);
     background-color:black;
 }
