@@ -16,6 +16,8 @@ function displayCharactorInfo() {
 
 // Storing an array of results in the results variable
 var results = response.data;
+// Deleting the charactors prior to adding new charactors
+$("#gifs-appear-here").empty();
 
 // Looping over every result item
 for (var i = 0; i < results.length; i++) {
@@ -72,6 +74,7 @@ function renderButtons(){
 // (this is necessary otherwise you will have repeat buttons)
 $("#btn-view").empty();
 
+
 // Looping through the array of charactors
 for (var i = 0; i < charactors.length; i++){
 
@@ -94,12 +97,14 @@ for (var i = 0; i < charactors.length; i++){
 // This function handle event where a charactor button is clicked
 $("#add-charactor").on("click", function(event){
     event.preventDefault();
+    
 
 // This line grabs the input from the textbox
 var charactor = $("#charactor-input").val().trim();
-
+charactorForm.reset();
 // Adding charactor from textbox to our array
 charactors.push(charactor);
+
 
 // Calling renderButtons which handles the processing of our charactor array
 renderButtons();
@@ -129,9 +134,7 @@ if(state === "still"){
     $(this).attr("data-state", "still");
 }
 
-
 };
 $(document).on("click", ".imageDiv", changeState);
-
-////   
+ 
 });
